@@ -60,7 +60,7 @@
 			this.$message_background.show();
 			this.$message.fadeIn("slow");
 		},
-		
+
 		//This function goes through the process of evaluating to see if the cards that were picked match each other
 		match: function(){
 			var x = New;
@@ -86,6 +86,31 @@
 					x.gameFinished();
 				}
 			}
+		},
+		//When a player finishes the game the winning message is displayed with the current score
+		gameFinished: function(){
+			this.paused = true;
+			setTimeout(function(){
+				New.showMessage();
+				New.$game.fadeOut();
+			}, 1000);
+			document.getElementById("game_scores").innerHTML = document.getElementById("game_score").innerHTML
+		},
+
+		//Matching updates scores
+		matching: function(){
+			this.$memoryDeck.on("click", this.match);
+			this.$restartButton.on("click", $.proxy(this.updateScore, this));
+		},
+
+		//This function sets up the deck of cards
+		makeDeck: function(){
+			this.html = this.createCards();
+			this.$game.html(this.html);
+			this.$memoryDeck = $(".card");
+			this.matching();
+			this.paused = false;
+			this.choice = null;
 		}
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
