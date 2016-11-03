@@ -19,7 +19,21 @@
 				array[n] = q;
 			}
 			return array;
-		}
+		},
+
+	    //This is the function that creates each card and image that's displayed on the front of the deck
+	    createCards: function(){
+	    	var front = '';
+	    	this.$deck.each(function(y, z){
+	    		front += '<div class="card" data-id="'+ z.id +'"><div class="inside">\
+	    		<div class="front"><img src="'+ z.img +'"\
+	    		alt="'+ z.name +'" /></div>\
+	    		<div class="back"><img src="images/greenland.jpg"\
+	    		alt="JavaScript Memory Match" /></div></div>\
+	    		</div>';
+	    	});
+	    	return front;
+	    }
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
 		var deck = [
