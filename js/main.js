@@ -1,9 +1,9 @@
-(function(){
+$(document).ready(function() {
 
 	var attempts = 0; //sets the counter variable to zero as the initial number of tries
 	var high_score = 999; //Starts the board with a default high score of 999
-	var new_high_score = 0; //sets the initial new high score variablehi
-			
+	var new_high_score = 0; //sets the initial new high score variable
+	
 	//This is the object that contains the functions/methods that are used for the memory match game
 	//The object first calls the function 
 	var New = {
@@ -34,6 +34,7 @@
 	    	});
 	    	return front;
 	    },
+
 		//This is the function that evaluates the score and replaces the high score if it is better then the current high score
 		updateScore: function(){
 			if(attempts < high_score && attempts != 0){
@@ -87,6 +88,7 @@
 				}
 			}
 		},
+
 		//When a player finishes the game the winning message is displayed with the current score
 		gameFinished: function(){
 			this.paused = true;
@@ -112,13 +114,14 @@
 			this.paused = false;
 			this.choice = null;
 		},
+
 		//This is the function that calls the shuffle function to shuffle the deck at the beginning of the game
 		shuffleDeck: function(deckArray){
 			this.$deck = $(this.shuffle(this.deckArray));
 		},
 
 
-		//This is the function that starts the initial beginnning of the match game
+		//This is the function that stars the initial beginnning of the match game
 		game: function(deck){
 			this.$game = $(".game");
 			this.$message = $(".message_display");
@@ -128,6 +131,7 @@
 			this.shuffleDeck(this.deckArray);
 			this.makeDeck();
 		}
+
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
 		var deck = [
@@ -195,5 +199,4 @@
 
 	New.game(deck); //when the page is displayed this auto starts a new game, starting by calling the game function
 
-
-})();
+});
