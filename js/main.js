@@ -193,4 +193,7 @@
 			},
 			];
 
+	New.game(deck); //when the page is displayed this auto starts a new game, starting by calling the game function
+
+
 })();
