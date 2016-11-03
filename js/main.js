@@ -33,7 +33,33 @@
 	    		</div>';
 	    	});
 	    	return front;
-	    }
+	    },
+		//This is the function that evaluates the score and replaces the high score if it is better then the current high score
+		updateScore: function(){
+			if(attempts < high_score && attempts != 0){
+				high_score = attempts;
+			};
+			document.getElementById("high_score").innerHTML = high_score;
+			attempts = 0;
+			document.getElementById("game_score").innerHTML = 0;
+			this.hideMessage();    //This calls
+			this.shuffleDeck(this.deckArray);
+			this.makeDeck();
+			this.$game.show("slow");
+
+		},
+
+		//This is the function that hides the winning message that's displayed 
+		hideMessage: function(){
+			this.$message_background.hide();
+			this.$message.hide();
+		},  
+
+		//This is the function that displays the winning message that's displayed Lars
+		showMessage: function(){
+			this.$message_background.show();
+			this.$message.fadeIn("slow");
+		}
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
 		var deck = [
