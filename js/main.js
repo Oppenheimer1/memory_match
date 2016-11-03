@@ -111,6 +111,22 @@
 			this.matching();
 			this.paused = false;
 			this.choice = null;
+		},
+		//This is the function that calls the shuffle function to shuffle the deck at the beginning of the game
+		shuffleDeck: function(deckArray){
+			this.$deck = $(this.shuffle(this.deckArray));
+		},
+
+
+		//This is the function that starts the initial beginnning of the match game
+		game: function(deck){
+			this.$game = $(".game");
+			this.$message = $(".message_display");
+			this.$message_background = $(".message_background");
+			this.$restartButton = $("button.restart");
+			this.deckArray = $.merge(deck, deck);
+			this.shuffleDeck(this.deckArray);
+			this.makeDeck();
 		}
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
