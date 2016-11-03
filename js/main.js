@@ -59,6 +59,33 @@
 		showMessage: function(){
 			this.$message_background.show();
 			this.$message.fadeIn("slow");
+		},
+		
+		//This function goes through the process of evaluating to see if the cards that were picked match each other
+		match: function(){
+			var x = New;
+			var $card = $(this);
+			if(!x.paused && !$card.find(".inside").hasClass("matched") && !$card.find(".inside").hasClass("picked")){
+				$card.find(".inside").addClass("picked");
+				if(!x.choice){
+					x.choice = $(this).attr("data-id");
+					attempts = attempts + 1;
+					document.getElementById("game_score").innerHTML = attempts;
+				} else if(x.choice == $(this).attr("data-id") && !$(this).hasClass("picked")){
+					$(".picked").addClass("matched").addClass("card_gone"); //if the cards match the class card_gone is added to those cards causing those cards to seem to disappear from the board
+					x.choice = null;
+				} else {
+					x.choice = null;
+					x.paused = true;
+					setTimeout(function(){
+						$(".picked").removeClass("picked");
+						New.paused = false;
+					}, 800);  //This displays the amount of time the cards in the deck are displayed when they're flipped overin milliseconds
+				}
+				if($(".matched").length == $(".card").length){
+					x.gameFinished();
+				}
+			}
 		}
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
