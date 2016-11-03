@@ -8,6 +8,18 @@
 	//The object first calls the function 
 	var New = {
 
+		//This is the function that shuffles the deck
+		shuffle: function(array){
+			var counter = array.length, q, n;
+			while (counter > 0) {
+				n = Math.floor(Math.random() * counter);
+				counter--;
+				q = array[counter];
+				array[counter] = array[n];
+				array[n] = q;
+			}
+			return array;
+		}
 	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
 		var deck = [
