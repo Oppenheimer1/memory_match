@@ -3,7 +3,12 @@
 	var attempts = 0; //sets the counter variable to zero as the initial number of tries
 	var high_score = 999; //Starts the board with a default high score of 999
 	var new_high_score = 0; //sets the initial new high score variablehi
+			
+	//This is the object that contains the functions/methods that are used for the memory match game
+	//The object first calls the function 
+	var New = {
 
+	};
 		//This is the deck array, the game size and number of cards to choose from can be changed by adding new items to this array
 		var deck = [
 		{
