@@ -121,7 +121,7 @@ $(document).ready(function() {
 		},
 
 
-		//This is the function that stars the initial beginnning of the match game
+		//This is the function that starts the initial beginnning of the match game
 		game: function(deck){
 			this.$game = $(".game");
 			this.$message = $(".message_display");
