@@ -56,7 +56,7 @@ $(document).ready(function() {
 			this.$message.hide();
 		},  
 
-		//This is the function that displays the winning message that's displayed Lars
+		//This is the function that displays the winning message that's displayed
 		showMessage: function(){
 			this.$message_background.show();
 			this.$message.fadeIn("slow");
