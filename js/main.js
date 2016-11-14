@@ -5,7 +5,6 @@ $(document).ready(function() {
 	var new_high_score = 0; //sets the initial new high score variable
 	
 	//This is the object that contains the functions/methods that are used for the memory match game
-	//The object first calls the function 
 	var New = {
 
 		//This is the function that shuffles the deck
